@@ -6,6 +6,5 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.ListCrudRepository;
 
-public class EventRepository {
-
+public interface EventRepository extends ListCrudRepository<Event, Long> {
 }
