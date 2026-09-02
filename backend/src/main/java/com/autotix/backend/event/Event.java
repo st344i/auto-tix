@@ -1,6 +1,6 @@
 package com.autotix.backend.event;
 
-import java.math.BigDecimal;
+
 import java.time.Instant;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,15 +18,19 @@ public class Event {
 
     private String name;
     private String venue;
+    private String location;
     private Instant eventDate;
+    private Integer ticketsRemaining; // "Integer"  -JPA entities need wrapper/object types (not primitives) for fields that can be null or managed by Hibernate.
 
     public Event() {
     }
 
-    public Event(String name, String venue, Instant eventDate) {
+    public Event(String name, String venue, String location, Instant eventDate, Integer ticketsRemaining) {
         this.name = name;
         this.venue = venue;
+        this.location = location;
         this.eventDate = eventDate;
+        this.ticketsRemaining = ticketsRemaining;
     }
 
     public Long getId() {
@@ -53,7 +57,26 @@ public class Event {
         return eventDate;
     }
 
+     public void setLocation(String location) {
+    this.location = location;
+    }
+
+    public String getLocation() {
+    return location;
+    }
+
     public void setEventDate(Instant eventDate) {
         this.eventDate = eventDate;
     }
+
+    public void setTicketsRemaining(Integer ticketsRemaining) {
+        this.ticketsRemaining = ticketsRemaining;
+    }
+
+    public Integer getTicketsRemaining() {
+        return ticketsRemaining;
+    }
 }
+
+
+
