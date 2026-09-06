@@ -16,20 +16,20 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private String venue;
-    private String location;
+    private String eventName;
+    private String venueLocation;
     private Instant eventDate;
+    private Float price;
     private Integer ticketsRemaining; // "Integer"  -JPA entities need wrapper/object types (not primitives) for fields that can be null or managed by Hibernate.
 
     public Event() {
     }
 
-    public Event(String name, String venue, String location, Instant eventDate, Integer ticketsRemaining) {
-        this.name = name;
-        this.venue = venue;
-        this.location = location;
+    public Event(String eventName, String venueLocation, Instant eventDate, Float price, Integer ticketsRemaining) {
+        this.eventName = eventName;
+        this.venueLocation = venueLocation;
         this.eventDate = eventDate;
+        this.price = price;
         this.ticketsRemaining = ticketsRemaining;
     }
 
@@ -37,36 +37,36 @@ public class Event {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getEventName() {
+        return eventName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
-    public String getVenue() {
-        return venue;
+    public String getVenueLocation() {
+        return venueLocation;
     }
 
-    public void setVenue(String venue) {
-        this.venue = venue;
+    public void setVenueLocation(String venueLocation) {
+        this.venueLocation = venueLocation;
     }
 
     public Instant getEventDate() {
         return eventDate;
     }
 
-     public void setLocation(String location) {
-    this.location = location;
-    }
-
-    public String getLocation() {
-    return location;
-    }
-
     public void setEventDate(Instant eventDate) {
         this.eventDate = eventDate;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
+    }
+
+    public Float getPrice() {
+        return price;
     }
 
     public void setTicketsRemaining(Integer ticketsRemaining) {
