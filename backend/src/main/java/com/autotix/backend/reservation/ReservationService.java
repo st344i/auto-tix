@@ -20,6 +20,10 @@ public class ReservationService {
       public List<Reservation> getAllReservations() {
         return reservationRepository.findAll();
     }
+
+    public List<Reservation> getReservationsByEmail(String buyerEmail) {
+    return reservationRepository.findByBuyerEmail(buyerEmail);
+}
                                                     //***CREATE***
 
 /* Reservation needs a foreign key (event) that must actually exist
@@ -52,8 +56,10 @@ public Reservation updateReservation(Long id, Reservation updatedReservation) {
         throw new IllegalStateException("Only pending reservations can be updated"); 
     }
     // Step 3: Copy over ONLY the fields the buyer is allowed to change. ticket type and payment details — nothing else.
-    existing.setTicket(updatedReservation.getTicketType());
-    existing.setPaymentDetails(updatedReservation.getPaymentDetails());
+    existing.setTicketType(updatedReservation.getTicketType());
+    existing.setCardNumber(updatedReservation.getCardNumber());
+    existing.setCardCvc(updatedReservation.getCardCvc());
+    existing.setCardExpiry(updatedReservation.getCardExpiry());
     return reservationRepository.save(existing); /* // Step 4: Save the now-updated "existing" row back to the database.
     // we are saving the "existing" (the real DB row we fetched and modified), NOT "updatedReservation" (the raw incoming request) */
 }

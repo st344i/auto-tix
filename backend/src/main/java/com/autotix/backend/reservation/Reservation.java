@@ -27,7 +27,9 @@ public class Reservation {
     private String buyerName;
     private String buyerEmail;
     private String ticketType; 
-    private String paymentDetails;   // mock details will be inserted. token/reference only
+    private String cardNumber;
+    private String cardCvc;
+    private String cardExpiry;
 
     @Enumerated(EnumType.STRING)
     private ReservationStatus status;  //for current MVP status will be PENDING 
@@ -37,12 +39,14 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(Event event, String buyerName, String ticketType, String buyerEmail, String paymentDetails) {
+    public Reservation(Event event, String buyerName, String ticketType, String buyerEmail, String cardNumber, String cardCvc, String cardExpiry ) {
         this.event = event;
         this.buyerName = buyerName;
         this.buyerEmail = buyerEmail;
         this.ticketType = ticketType;
-        this.paymentDetails = paymentDetails;
+        this.cardNumber = cardNumber; 
+        this.cardCvc = cardCvc;
+        this.cardExpiry = cardExpiry;
         this.status = ReservationStatus.PENDING;
         this.createdAt = Instant.now();
     }
@@ -71,7 +75,7 @@ public class Reservation {
         return ticketType;
     }
 
-    public void setTicket(String ticketType) {
+    public void setTicketType(String ticketType) {
         this.ticketType = ticketType;
     }
 
@@ -83,12 +87,28 @@ public class Reservation {
         this.buyerEmail = buyerEmail;
     }
 
-    public String getPaymentDetails() {
-        return paymentDetails;
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
     }
 
-    public void setPaymentDetails(String paymentDetails) {
-        this.paymentDetails = paymentDetails;
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public String getCardCvc() {
+        return cardCvc;
+    }
+
+    public void setCardCvc(String cardCvc) {
+        this.cardCvc = cardCvc;
+    }
+
+    public String getCardExpiry() {
+        return cardExpiry;
+    }
+
+    public void setCardExpiry(String cardExpiry) {
+        this.cardExpiry = cardExpiry;
     }
 
     public ReservationStatus getStatus() {

@@ -16,6 +16,7 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String imageUrl;
     private String eventName;
     private String venueLocation;
     private Instant eventDate;
@@ -25,7 +26,8 @@ public class Event {
     public Event() {
     }
 
-    public Event(String eventName, String venueLocation, Instant eventDate, Float price, Integer ticketsRemaining) {
+    public Event(String imageUrl, String eventName, String venueLocation, Instant eventDate, Float price, Integer ticketsRemaining) {
+        this.imageUrl = imageUrl;
         this.eventName = eventName;
         this.venueLocation = venueLocation;
         this.eventDate = eventDate;
@@ -35,6 +37,14 @@ public class Event {
 
     public Long getId() {
         return id;
+    }
+
+    public String imageUrl() {
+        return imageUrl; 
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;  
     }
 
     public String getEventName() {

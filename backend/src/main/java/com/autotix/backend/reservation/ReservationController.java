@@ -26,6 +26,11 @@ Your reservationController sits and waits for that request to arrive, then hands
         return reservationService.getAllReservations();
     }
 
+    @GetMapping("/reservations")
+    public List<Reservation> getReservationsByEmail(@RequestParam String buyeremail) {
+        return reservationService.getReservationsByEmail(buyeremail);
+    }
+
     @GetMapping("/{id}")
     public Reservation getReservation(@PathVariable Long id) {
         return reservationService.getReservation(id);
