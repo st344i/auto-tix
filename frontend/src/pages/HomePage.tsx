@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
-import { Grid, Box } from "@chakra-ui/react"
+import { Grid } from "@chakra-ui/react"
 import type { Event } from "../types/type";
 
 //When this page first appears, ask the backend for the events. When they arrive, save them so the screen can show them.

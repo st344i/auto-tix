@@ -24,9 +24,9 @@ return(
         <Card.Title mb="2">Your ticket has been reserved!</Card.Title>
       </Card.Body>
         <Card.Description>
-          {event.name} {reservation.ticketType}
-          {event.eventdate}
-          {event.venuelocation}
+          {event.eventName} {reservation.ticketType}
+          {event.eventDate}
+          {event.venueLocation}
         </Card.Description>
       <Card.Footer>
         <Button>View Tickets</Button>

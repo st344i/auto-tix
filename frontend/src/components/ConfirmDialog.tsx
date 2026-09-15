@@ -14,7 +14,7 @@ function ConfirmDialog() {
         <Dialog.Positioner>
           <Dialog.Content>
             <Dialog.Header>
-              <Dialog.Title>What you should know before reserving</Dialog.Title>
+              <Dialog.Title>Read before you reserve</Dialog.Title>
             </Dialog.Header>
             <Dialog.Body>
               <p>
@@ -28,6 +28,7 @@ function ConfirmDialog() {
                 <Button variant="outline">Cancel</Button>
               </Dialog.ActionTrigger>
               <Button>yes, I understand</Button>
+              <Button>Cancel</Button>
             </Dialog.Footer>
             <Dialog.CloseTrigger asChild>
               <CloseButton size="sm" />
