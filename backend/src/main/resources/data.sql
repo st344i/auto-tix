@@ -11,8 +11,8 @@ INSERT INTO events (event_name, event_date, venue_location, price, tickets_remai
 ('CBF Fest 2026', '2026-10-01 10:00:00', 'ExCeL London', 30, 100);
 
 INSERT INTO reservations (event_id, buyer_name, buyer_email, ticket_type, payment_details, status) VALUES
-(0001, 'Jane Doe', 'jane@example.com', 'General', 'Card ending 4242', 'PENDING'),
-(0002, 'John Doe', 'john@example.com', 'VIP', 'Card ending 1881', 'PENDING'),
-(0003, 'Jess Doe', 'jess@example.com', 'General', 'Card ending 2534', 'PENDING');
+(300345, 'Jane Doe', 'jane@example.com', 'General', 'Card ending 4242', 'PENDING'),
+(300678, 'John Doe', 'john@example.com', 'VIP', 'Card ending 1881', 'PENDING'),
+(300789, 'Jess Doe', 'jess@example.com', 'General', 'Card ending 2534', 'PENDING');
 
 
