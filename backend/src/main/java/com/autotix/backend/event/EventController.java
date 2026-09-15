@@ -5,12 +5,15 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/events") //events from the event.java (table= events)
+@CrossOrigin(origins = "http://localhost:5173") // ??
 public class EventController {
     private final EventService eventService;
 // Controller is received from Service
     public EventController(EventService eventService) {
         this.eventService = eventService;
     }
+
+
 
 /* information gets requested from the Controller, and the Controller responds
 the browser sends the GET /api/events request, triggered by the React useEffect. 
