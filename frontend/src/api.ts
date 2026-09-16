@@ -1,11 +1,11 @@
-import type { Event, Reservation } from "./types/type";
+import type { TicketedEvent, Reservation } from "./types/type";
 
 export interface Api { //This defines a shape — a contract describing what methods something must have and what they must return/. export makes it importable elsewhere.
-  listEvents(): Promise<Event[]>; // this method, when awaited, gives you back an array of Events. [] - an array of this type
+  listEvents(): Promise<TicketedEvent[]>; // this method, when awaited, gives you back an array of Events. [] - an array of this type
 
   listReservationsByEmail(email: string): Promise<Reservation[]>; // fetches only this buyer's reservations, filtered by email
 
-  getEvent(id: number): Promise<Event | undefined>; // fetches one event by id, if you need it
+  getEvent(id: number): Promise<TicketedEvent | undefined>; // fetches one event by id, if you need it
   // "give me the id, I'll hand you back the whole Event object." The method signature only needs to describe what goes in (just the id) and what comes out (a whole Event, or undefined if it wasn't found).
 
   addReservation(
@@ -42,7 +42,7 @@ const httpApi: Api = {
   async listEvents() {
     const response = await fetch(`${BASE_URL}/events`);
     ensureOk(response, "list the events");
-    return (await response.json()) as Event[];
+    return (await response.json()) as TicketedEvent[];
   },
 
   async listReservationsByEmail(email) {
@@ -59,7 +59,7 @@ const httpApi: Api = {
       return undefined;
     }
     ensureOk(response, `get event ${id}`);
-    return (await response.json()) as Event;
+    return (await response.json()) as TicketedEvent;
   },
 
   async addReservation(

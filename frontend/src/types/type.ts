@@ -1,5 +1,5 @@
 
-export interface Event {
+export interface TicketedEvent {
     id: number;
     imageUrl: string;
     eventName: string;
@@ -16,9 +16,9 @@ export interface Reservation {
     buyerName: string;
     buyerEmail: string;
     ticketType: string;
-    cardNumber: number;
-    cardCvc: number;
-    cardExpiry: number;
+    cardNumber: string;
+    cardCvc: string;
+    cardExpiry: string;
     status: 'PENDING' | 'CANCELLED';
     createdAt: string;
 }

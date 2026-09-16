@@ -1,11 +1,11 @@
 import {  } from 'react';
 import type { Reservation } from "../types/type";
-import type { Event } from "../types/type";
+import type { TicketedEvent } from "../types/type";
 import { Box, Button, Card, Image } from "@chakra-ui/react"
 
 interface ReservationCardProps {
   reservation: Reservation;
-  event: Event;
+  event: TicketedEvent;
 }
 
 function ReservationCard({ event, reservation }: ReservationCardProps) {

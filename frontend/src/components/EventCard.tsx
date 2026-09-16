@@ -1,20 +1,37 @@
 import {  } from 'react';
 import { Button, Card, Image, Text } from "@chakra-ui/react"
-import type { Event } from "../types/type";
+import type { TicketedEvent } from "../types/type";
+
 
 
 interface EventCardProps {
-  event: Event;   // ← ONE prop, called "event"
+  event: TicketedEvent; 
+  onReserve: (event: TicketedEvent) => void;   // ← ONE prop, called "event"
 }// you're using it to describe the shape of your prop.
-function EventCard({ event }: EventCardProps) { // function declaration
+
+function formatEventDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+function EventCard({ event, onReserve }: EventCardProps) { // function declaration
     return (
     <Card.Root maxW="sm" overflow="hidden">
       <Image
         src={event.imageUrl}
         alt={event.eventName}
       />
+
       <Card.Body gap="2">
-        <Card.Title>{event.eventName}  {event.eventDate}</Card.Title>
+        <Card.Title>{event.eventName} 
+          </Card.Title>
+         <Card.Description>
+          {formatEventDate(event.eventDate)}
+        </Card.Description>
         <Card.Description>
           {event.venueLocation}
         </Card.Description>
@@ -23,8 +40,9 @@ function EventCard({ event }: EventCardProps) { // function declaration
     </Text>
       </Card.Body>
       <Card.Footer gap="2">
-         <Button variant="ghost">Find out more</Button>
-         <Button variant="solid">Reserve Tickets</Button>
+         <Button variant="solid" onClick={() => { console.log("Reserve clicked", event); onReserve(event); }}>
+            Reserve Tickets
+        </Button>
       </Card.Footer>
     </Card.Root>
     )
