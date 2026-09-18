@@ -6,6 +6,9 @@ import java.util.NoSuchElementException;
 import org.springframework.stereotype.Service;
 import com.autotix.backend.event.Event;
 import com.autotix.backend.event.EventRepository;
+import com.autotix.backend.exception.EventNotFoundException;          
+import com.autotix.backend.exception.ReservationNotFoundException;   
+import com.autotix.backend.exception.InvalidReservationStateException;
 
 @Service
 public class ReservationService {
@@ -53,7 +56,7 @@ public Reservation updateReservation(Long id, Reservation updatedReservation) {
     // only a PENDING reservation is allowed to be edited.
     // If it's already CANCELLED, stop here and refuse.
     if (existing.getStatus() != ReservationStatus.PENDING) { 
-        throw new IllegalStateException("Only pending reservations can be updated"); 
+        throw new InvalidReservationStateException("Only pending reservations can be updated"); 
     }
     // Step 3: Copy over ONLY the fields the buyer is allowed to change. ticket type and payment details — nothing else.
     existing.setTicketType(updatedReservation.getTicketType());
@@ -69,7 +72,7 @@ public void deleteReservation(Long id) {
     Reservation existing = getReservation(id);
 
     if (existing.getStatus() != ReservationStatus.PENDING) {
-        throw new IllegalStateException("Only pending reservations can be withdrawn");
+        throw new InvalidReservationStateException("Only pending reservations can be withdrawn");
     }
 
     existing.setStatus(ReservationStatus.CANCELLED);
