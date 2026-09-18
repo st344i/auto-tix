@@ -39,7 +39,7 @@ public class Event {
         return id;
     }
 
-    public String imageUrl() {
+    public String getImageUrl() {
         return imageUrl; 
     }
 
