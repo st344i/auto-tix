@@ -2,7 +2,6 @@ package com.autotix.backend.reservation;
 
  
 import java.util.List;
-import java.util.NoSuchElementException;
 import org.springframework.stereotype.Service;
 import com.autotix.backend.event.Event;
 import com.autotix.backend.event.EventRepository;
@@ -31,20 +30,26 @@ public class ReservationService {
 
 /* Reservation needs a foreign key (event) that must actually exist
 A status field that should always start PENDING, regardless of what the client sends */
-public Reservation createReservation(Reservation reservation) {
-    Event event = eventRepository.findById(reservation.getEvent().getId()).orElseThrow(); //find ID, else if not found throw no such element exception ("Event not found").
-    reservation.setEvent(event);
-    reservation.setStatus(ReservationStatus.PENDING); // ← This is where a brand new reservation is created, forcing its starting PENDING state
-    return reservationRepository.save(reservation);
-
-}
+    public Reservation createReservation(Reservation reservation) {
+        //swap to your custom exception, with a real message
+        Event event = eventRepository.findById(reservation.getEvent().getId())
+            .orElseThrow(() -> new EventNotFoundException(
+                "Event not found: " + reservation.getEvent().getId()));
+        reservation.setEvent(event);
+        reservation.setStatus(ReservationStatus.PENDING);
+        return reservationRepository.save(reservation);
+    }
 
                                                     //***READ-ONLY***
 
 public Reservation getReservation(Long id) {
-    return reservationRepository.findById(id).orElseThrow();                                                    
-}    
-                                                    //***UPDATE***
+        // was: .orElseThrow(); ← swap here too, this feeds Update and Delete below
+        return reservationRepository.findById(id)
+            .orElseThrow(() -> new ReservationNotFoundException(
+                "Reservation not found: " + id));
+    }                                                 
+  
+  //***UPDATE***
 
 // Step 1: Go fetch the REAL row from the database using the id in the URL.
     // We never trust that "updatedReservation" (the incoming request body) is the full truth —
