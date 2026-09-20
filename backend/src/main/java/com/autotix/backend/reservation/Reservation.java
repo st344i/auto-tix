@@ -24,7 +24,8 @@ public class Reservation {
     @JoinColumn(name = "event_id", nullable = false) 
     private Event event;
 
-    private String buyerName;
+    private String buyerFirstname;
+    private String buyerLastname;
     private String buyerEmail;
     private String ticketType; 
     private String cardNumber;
@@ -39,9 +40,10 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(Event event, String buyerName, String ticketType, String buyerEmail, String cardNumber, String cardCvc, String cardExpiry ) {
+    public Reservation(Event event, String buyerFirstname, String buyerLastname, String ticketType, String buyerEmail, String cardNumber, String cardCvc, String cardExpiry ) {
         this.event = event;
-        this.buyerName = buyerName;
+        this.buyerFirstname = buyerFirstname;
+        this.buyerLastname = buyerLastname;
         this.buyerEmail = buyerEmail;
         this.ticketType = ticketType;
         this.cardNumber = cardNumber; 
@@ -63,12 +65,20 @@ public class Reservation {
         this.event = event;
     }
 
-    public String getBuyerName() {
-        return buyerName;
+    public String getbuyerFirstname() {
+        return buyerFirstname;
     }
 
-    public void setBuyerName(String buyerName) {
-        this.buyerName = buyerName;
+    public void setbuyerFirstname(String buyerFirstname) {
+        this.buyerFirstname = buyerFirstname;
+    }
+
+        public String getbuyerLastname() {
+        return buyerLastname;
+    }
+
+    public void setbuyerLastname(String buyerLastname) {
+        this.buyerLastname = buyerLastname;
     }
 
         public String getTicketType() {

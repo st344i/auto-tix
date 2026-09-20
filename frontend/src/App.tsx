@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Home from "./page/Home";
+import Home from "./page/HomePage";
 import ReservationFormPage from "./page/ReservationFormPage";
 import ReservationConfirmPage from "./page/ReservationConfirmPage";
 import MyTixPage from "./page/MyTixPage";
-import ReservationDelete from "./page/ReservationDelete";
-import HowItWorks from "./page/HowItWorks";
+import ReservationDelete from "./page/ReservationDeletePage";
+import HowItWorks from "./page/HowItWorksPage";
 import type { TicketedEvent, Reservation } from "./types/type";
 import NavBar from "./components/NavBar";
 import type {Page} from "./types/type";

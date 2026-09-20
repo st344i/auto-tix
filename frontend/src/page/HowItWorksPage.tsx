@@ -8,7 +8,7 @@ function HowItWorks({ onReturn }: HowItWorksProps) {
   return (
     <Card.Root maxW="xl" p="6" mx="auto" mt="8">
       <Card.Body gap="4">
-        <Heading size="lg">How It Works</Heading>
+        <Heading size="lg">How does AutoTix work?</Heading>
 
         <Box>
           <Text fontWeight="semibold">1. Browse events</Text>

@@ -1,6 +1,8 @@
 package com.autotix.backend.reservation;
 
 import java.util.List;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -48,8 +50,9 @@ Your reservationController sits and waits for that request to arrive, then hands
         return reservationService.updateReservation(id, updatedreservation);
     }
     
-    @DeleteMapping("/{id}")
-    public void deleteReservation(@PathVariable Long id) {
-        reservationService.deleteReservation(id); //no return as it's a void method
+   @DeleteMapping("/{id}")
+public ResponseEntity<Void> deleteReservation(@PathVariable Long id) {
+    reservationService.deleteReservation(id);
+    return ResponseEntity.noContent().build();
 }
 }

@@ -8,7 +8,7 @@ INSERT INTO events (image_url, event_name, event_date, venue_location, price, ti
 ('images/jayz.jpg', 'Jayz 30', '2026-09-04 10:00:00', 'O2, London', 150.00, 100),
 ('images/lauryn-hill.jpg', 'Lauryn Hill', '2026-10-01 10:00:00', 'OVO Wembley Arena, London', 100.00, 100);
 
-INSERT INTO reservations (event_id, buyer_name, buyer_email, ticket_type, card_number, card_cvc, card_expiry, status) VALUES
-(1, 'Jane Doe', 'jane@example.com', 'General Admission', '3333 4444 5555 6666', '345', '02/26', 'PENDING'),
-(2, 'John Doe', 'john@example.com', 'VIP', '3333 4444 5555 6666', '345', '02/26', 'PENDING'),
-(3, 'Jess Doe', 'jess@example.com', 'VIP', '3333 4444 5555 6666', '345', '02/26', 'PENDING');
+INSERT INTO reservations (event_id, buyer_firstname, buyer_lastname, buyer_email, ticket_type, card_number, card_cvc, card_expiry, status) VALUES
+(1, 'Jane', 'Doe', 'jane@example.com', 'General Admission', '3333 4444 5555 6666', '345', '02/26', 'PENDING'),
+(2, 'John', 'Doe', 'john@example.com', 'VIP', '3333 4444 5555 6666', '345', '02/26', 'PENDING'),
+(3, 'Jess', 'Doe', 'jess@example.com', 'VIP', '3333 4444 5555 6666', '345', '02/26', 'PENDING');

@@ -23,7 +23,8 @@ export interface TicketedEvent {
 export interface Reservation {
     id: number;
     event: TicketedEvent;
-    buyerName: string;
+    buyerFirstname: string;
+    buyerLastname: string;
     buyerEmail: string;
     ticketType: string;
     cardNumber: string;

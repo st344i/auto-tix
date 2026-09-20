@@ -6,7 +6,6 @@ import type { TicketedEvent } from "../types/type";
 
 interface EventCardProps {
   event: TicketedEvent; 
-  Label: string;
   onReserve: (event: TicketedEvent) => void;   // ← ONE prop, called "event"
 }// you're using it to describe the shape of your prop.
 
