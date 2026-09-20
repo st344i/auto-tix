@@ -1,8 +1,9 @@
 package com.autotix.backend.event;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import org.springframework.stereotype.Service;
+
+import com.autotix.backend.exception.EventNotFoundException;
 
 @Service
 public class EventService {
@@ -18,6 +19,6 @@ public class EventService {
 
     public Event getEvent(Long id) {
         return eventRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Event not found: " + id)); //find ID, else if not found throw no such element exception ("Event not found").  
+                .orElseThrow(() -> new EventNotFoundException("Event not found: " + id)); //find ID, else if not found throw no such element exception ("Event not found").  
     }
 }
