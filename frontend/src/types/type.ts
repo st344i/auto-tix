@@ -1,4 +1,14 @@
 
+
+export type Page =
+  | "home"
+  | "myTix"
+  | "howItWorks"
+  | "reservationForm"
+  | "reservationConfirm"
+  | "reservationDelete";
+
+
 export interface TicketedEvent {
     id: number;
     imageUrl: string;
@@ -22,3 +32,5 @@ export interface Reservation {
     status: 'PENDING' | 'CANCELLED';
     createdAt: string;
 }
+
+

@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
-import { Grid } from "@chakra-ui/react"
+import { VStack } from "@chakra-ui/react"
 import type { TicketedEvent } from "../types/type";
 
-interface HomePageProps {
+
+interface HomeProps {
   onReserve: (event: TicketedEvent) => void;
 }
 
-function HomePage({ onReserve }: HomePageProps) { 
+function Home({ onReserve }: HomeProps) { 
     const [events, setEvents] = useState<TicketedEvent[]>([]);
 
     useEffect(() => {
@@ -16,13 +17,13 @@ function HomePage({ onReserve }: HomePageProps) {
         .then((data) => setEvents(data));
     }, []);
 
-  return (
-    <Grid templateColumns="repeat(3, 1fr)" gap="6">
-        {events.slice(0, 3).map((event) => (
-            <EventCard key={event.id} event={event} onReserve={onReserve} />
-        ))}
-    </Grid>
-  )
+return (
+  <VStack gap="6" align="center" width="100%">
+    {events.slice(0, 3).map((event) => (
+      <EventCard key={event.id} event={event} onReserve={onReserve} />
+    ))}
+  </VStack>
+);
 }
+export default Home;
 
-export default HomePage;

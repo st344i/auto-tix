@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/reservations") //reservations from the reservation.java (table= reservations)
+@CrossOrigin(origins = "http://localhost:5173") // ??
 public class ReservationController {
     private final ReservationService reservationService;
 

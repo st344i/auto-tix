@@ -1,6 +1,6 @@
 DELETE FROM reservations;
 DELETE FROM events;
-ALTER TABLE events AUTO_INCREMENT = 30001;
+ALTER TABLE events AUTO_INCREMENT = 1;
 ALTER TABLE reservations AUTO_INCREMENT = 1;
 
 INSERT INTO events (image_url, event_name, event_date, venue_location, price, tickets_remaining) VALUES
@@ -9,6 +9,6 @@ INSERT INTO events (image_url, event_name, event_date, venue_location, price, ti
 ('images/lauryn-hill.jpg', 'Lauryn Hill', '2026-10-01 10:00:00', 'OVO Wembley Arena, London', 100.00, 100);
 
 INSERT INTO reservations (event_id, buyer_name, buyer_email, ticket_type, card_number, card_cvc, card_expiry, status) VALUES
-(30001, 'Jane Doe', 'jane@example.com', 'General', '3333 4444 5555 6666', '345', '02/26', 'PENDING'),
-(30002, 'John Doe', 'john@example.com', 'VIP', '3333 4444 5555 6666', '345', '02/26', 'PENDING'),
-(30003, 'Jess Doe', 'jess@example.com', 'General', '3333 4444 5555 6666', '345', '02/26', 'PENDING');
+(1, 'Jane Doe', 'jane@example.com', 'General Admission', '3333 4444 5555 6666', '345', '02/26', 'PENDING'),
+(2, 'John Doe', 'john@example.com', 'VIP', '3333 4444 5555 6666', '345', '02/26', 'PENDING'),
+(3, 'Jess Doe', 'jess@example.com', 'VIP', '3333 4444 5555 6666', '345', '02/26', 'PENDING');
