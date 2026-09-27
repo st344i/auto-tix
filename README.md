@@ -27,7 +27,7 @@ Autotix lets buyers browse upcoming events and submit a **pre-authorisation** â€
    Edit `.env`:
 
    ```
-   MYSQL_ROOT_PASSWORD=your_own_password
+   MYSQL_ROOT_PASSWORD=root
    MYSQL_DATABASE=autotix
    ```
 
@@ -89,7 +89,6 @@ spring.datasource.password=your_local_password
 | GET | `/api/reservations` | List all reservations |
 | GET | `/api/reservations/{id}` | Get a single reservation |
 | POST | `/api/reservations` | Submit a new pre-authorisation |
-| PUT | `/api/reservations/{id}` | Update a pending pre-authorisation (ticket type / payment details only) |
 | DELETE | `/api/reservations/{id}` | Withdraw a pending pre-authorisation (sets status to `CANCELLED`) |
 
 Only a `PENDING` reservation can be updated or withdrawn â€” attempting either on a `CANCELLED` reservation returns `409 Conflict`. An unknown event or reservation ID returns `404 Not Found`. All error responses follow a consistent JSON shape (status, error, message, path) via a global exception handler.
