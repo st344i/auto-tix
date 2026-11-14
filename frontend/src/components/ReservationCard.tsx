@@ -1,6 +1,6 @@
 import type { Reservation, TicketedEvent } from "../types/type";
 import { Box, Card, Image } from "@chakra-ui/react";
-import ConfirmDialogDelete from "./ConfirmDialogDelete";
+import ConfirmDialog from "./ConfirmDialog";
 
 interface ReservationCardProps {
   reservation: Reservation;
@@ -32,7 +32,7 @@ function ReservationCard({ event, reservation, onWithdraw }: ReservationCardProp
           </Card.Description>
         </Card.Body>
         <Card.Footer>
-          <ConfirmDialogDelete
+          <ConfirmDialog
             triggerLabel="Withdraw ticket"
             title="Are you sure you want to withdraw this reservation?"
             message="Your reservation will be cancelled. This can't be undone."

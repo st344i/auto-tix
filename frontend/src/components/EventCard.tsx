@@ -1,13 +1,11 @@
-import {  } from 'react';
 import { ButtonGroup, Button, Card, Image, Text } from "@chakra-ui/react"
 import type { TicketedEvent } from "../types/type";
 
 
-
 interface EventCardProps {
   event: TicketedEvent; 
-  onReserve: (event: TicketedEvent) => void;   // ← ONE prop, called "event"
-}// you're using it to describe the shape of your prop.
+  onReserve: (event: TicketedEvent) => void;   
+}
 
 function formatEventDate(dateString: string): string {
   const date = new Date(dateString);

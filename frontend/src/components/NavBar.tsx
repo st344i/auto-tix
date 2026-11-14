@@ -1,9 +1,8 @@
 import { Button, HStack, Heading } from "@chakra-ui/react";
-import type { Dispatch, SetStateAction } from "react";
 import type { Page } from "../types/type";
 
 interface NavBarProps {
-  onNavigate: Dispatch<SetStateAction<Page>>;
+  onNavigate: (page: Page) => void;
 }
 
 function NavBar({ onNavigate }: NavBarProps) {

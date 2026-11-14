@@ -284,13 +284,12 @@ function ReservationForm({ ticketedEvent, onCancel, onReserve }: ReservationForm
   );
 }
 
-const images = cardImages;
 
 const CardImage = (props: ReturnType<typeof usePaymentInputs>) => {
   const { meta, getCardImageProps } = props;
   return (
     <Show when={meta.cardType} fallback={<LuCreditCard size={16} aria-hidden="true" />}>
-      <svg {...getCardImageProps({ images })} />
+      <svg {...getCardImageProps({ images: cardImages })} />
     </Show>
   );
 };
